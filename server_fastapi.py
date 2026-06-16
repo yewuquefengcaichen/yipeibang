@@ -40,6 +40,7 @@ AI_CONFIG_LOCAL_FILE = DATA_DIR / "api_config.local.json"
 CASES_FILE = DATA_DIR / "cases.json"
 KNOWLEDGE_FILE = DATA_DIR / "knowledge.json"
 MEDIA_SOURCES_FILE = DATA_DIR / "media_sources.json"
+JSON_CACHE: dict[str, dict] = {}
 
 # 导入工具函数
 from utils.database import (
@@ -670,8 +671,15 @@ SAFETY_RULES = [
 def read_json_file(path: Path, default):
     if not path.exists():
         return default
+    cache_key = str(path)
+    mtime = path.stat().st_mtime
+    cached = JSON_CACHE.get(cache_key)
+    if cached and cached.get("mtime") == mtime:
+        return cached["data"]
     with path.open("r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    JSON_CACHE[cache_key] = {"mtime": mtime, "data": data}
+    return data
 
 
 def load_cases() -> list[dict]:
@@ -1303,16 +1311,23 @@ async def chat_stream(request: Request):
             yield f"data: {json.dumps({'step': '正在理解问题并启动安全层', 'status': 'running'}, ensure_ascii=False)}\n\n"
             await asyncio.sleep(0.03)
 
-            base_intent = route_intent(user_message)
-            safety_flags = safety_flags_for(user_message)
-            structured_knowledge = normalize_structured_knowledge(select_knowledge(user_message, limit=5))
+            base_intent, safety_flags, selected_items = await asyncio.gather(
+                asyncio.to_thread(route_intent, user_message),
+                asyncio.to_thread(safety_flags_for, user_message),
+                asyncio.to_thread(select_knowledge, user_message, 5),
+            )
+            structured_knowledge = normalize_structured_knowledge(selected_items)
             intent_result = route_for_message(user_message, base_intent, safety_flags, structured_knowledge)
             knowledge_results = structured_knowledge
             if not knowledge_results and intent_result["route"] in {"RAG", "HYBRID"}:
                 knowledge_results = normalize_structured_knowledge(visible_knowledge(4))
-            memories = derive_memories(user_message, intent_result)
-            actions = derive_actions(user_message, intent_result)
-            parsed_records = [] if intent_result.get("route") == "SAFE" else parse_health_records(user_message)
+            memories, actions, parsed_records = await asyncio.gather(
+                asyncio.to_thread(derive_memories, user_message, intent_result),
+                asyncio.to_thread(derive_actions, user_message, intent_result),
+                asyncio.to_thread(parse_health_records, user_message),
+            )
+            if intent_result.get("route") == "SAFE":
+                parsed_records = []
 
             for event_name, data in [
                 ("intent", intent_result),
