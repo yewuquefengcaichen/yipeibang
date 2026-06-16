@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.playwright-cli/
+output/
+server.log
+server.err.log
+server.pid
+*.backup
+tmp_*.py
+tmp_*.js
+tmp_screens/
+.DS_Store
+Thumbs.db
+node_modules/

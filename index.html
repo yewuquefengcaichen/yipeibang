@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>医陪帮</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563eb'/%3E%3Cpath d='M32 16v32M16 32h32' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles/yipeibang-pro.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="side-brand">
+        <div>
+          <strong>医陪帮</strong>
+          <span>你的智能健康助手</span>
+        </div>
+        <button class="icon-plain brand-compose" id="brandNewChatBtn" title="新建对话"><i data-lucide="square-pen"></i></button>
+      </div>
+      <div class="side-top">
+        <button class="icon-plain" id="collapseBtn" title="收起侧栏"><i data-lucide="chevrons-left"></i></button>
+        <button class="icon-plain" id="quickDemoBtn" title="核心演示"><i data-lucide="sparkles"></i></button>
+        <button class="icon-plain" id="newChatIconBtn" title="新建对话"><i data-lucide="plus"></i></button>
+      </div>
+
+      <nav class="menu">
+        <button class="menu-item active" data-view="chat"><i data-lucide="message-circle-plus"></i><span>新建对话</span></button>
+        <button class="menu-item" data-view="history"><i data-lucide="clipboard-list"></i><span>历史对话</span></button>
+        <button class="menu-item" data-view="profile"><i data-lucide="user-round"></i><span>我的档案</span></button>
+        <button class="menu-item" data-view="knowledge"><i data-lucide="library-big"></i><span>知识库浏览</span></button>
+        <button class="menu-item" data-view="records"><i data-lucide="activity"></i><span>健康记录</span></button>
+        <button class="menu-item" data-view="reminders"><i data-lucide="bell"></i><span>提醒中心</span></button>
+        <button class="menu-item" data-view="models"><i data-lucide="router"></i><span>模型设置</span></button>
+      </nav>
+
+      <div class="history-block">
+        <div class="history-title">历史对话</div>
+        <div class="conversation-list" id="conversationList"></div>
+      </div>
+
+      <div class="side-footer">
+        <button class="footer-button" id="themeToggle"><i data-lucide="sun-moon"></i><span>明暗模式</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-plain only-mobile" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
+        <div class="top-title" id="topTitle">医陪帮</div>
+        <div class="top-right" id="topRight"></div>
+      </header>
+
+      <section class="view active" id="view-chat">
+        <div class="home" id="homePanel">
+          <div class="home-brand">
+            <div class="home-logo"><i data-lucide="cross"></i></div>
+            <h1>医陪帮</h1>
+          </div>
+          <div class="feature-grid">
+            <button class="feature-card" data-prompt="明天内分泌科复诊，空腹血糖8.2，最近夜里出汗，要带什么？">
+              <span class="feature-icon"><i data-lucide="clipboard-check"></i></span>
+              <strong>复诊准备</strong>
+              <small>材料清单和问诊提纲</small>
+            </button>
+            <button class="feature-card" data-prompt="糖化血红蛋白7.4%和尿酸430是什么意思？">
+              <span class="feature-icon"><i data-lucide="file-heart"></i></span>
+              <strong>报告解读</strong>
+              <small>把指标变成问题</small>
+            </button>
+            <button class="feature-card" data-prompt="下次复诊前一天晚上8点提醒我，并同步给家属">
+              <span class="feature-icon"><i data-lucide="bell-ring"></i></span>
+              <strong>主动提醒</strong>
+              <small>复诊和家属同步</small>
+            </button>
+            <button class="feature-card" data-prompt="我胸痛、呼吸困难、脸色发白，现在怎么办？">
+              <span class="feature-icon"><i data-lucide="siren"></i></span>
+              <strong>风险处理</strong>
+              <small>急症安全提醒</small>
+            </button>
+          </div>
+        </div>
+        <div class="messages" id="messagesContainer"></div>
+      </section>
+
+      <section class="view" id="view-history">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>历史对话</h2>
+            <span id="historyCount">0 条</span>
+          </div>
+          <div class="history-page-list" id="historyPageList"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-profile">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>我的档案</h2>
+            <span>长期记忆</span>
+          </div>
+          <div class="memory-grid" id="profileGrid"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-knowledge">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>知识库浏览</h2>
+            <span id="knowledgeCount"></span>
+          </div>
+          <label class="search-box">
+            <i data-lucide="search"></i>
+            <input id="knowledgeSearch" placeholder="搜索：夜间出汗、糖尿病、空腹血糖、用药提醒">
+          </label>
+          <div class="knowledge-tabs" id="knowledgeTabs"></div>
+          <div class="knowledge-list" id="knowledgeGrid"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-records">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>健康记录</h2>
+            <span>从对话自动沉淀</span>
+          </div>
+          <div class="record-grid" id="recordGrid"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-reminders">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>提醒中心</h2>
+            <span>主动服务</span>
+          </div>
+          <div class="reminder-list" id="reminderGrid"></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-models">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>模型设置</h2>
+            <span id="modelStatus">未连接</span>
+          </div>
+          <div class="model-layout">
+            <div class="provider-list" id="providerList"></div>
+            <form class="model-editor" id="modelForm">
+              <label>
+                <span>供应商</span>
+                <input id="providerName" placeholder="例如 AnyRouter">
+              </label>
+              <label>
+                <span>Base URL</span>
+                <input id="providerBaseUrl" placeholder="https://example.com">
+              </label>
+              <label>
+                <span>API Key</span>
+                <input id="providerApiKey" type="password" autocomplete="off" placeholder="留空则沿用已保存 Key">
+              </label>
+              <label>
+                <span>模型</span>
+                <div class="model-select-row">
+                  <select id="providerModelSelect"></select>
+                  <input id="providerModelInput" placeholder="也可以手动输入模型名">
+                </div>
+              </label>
+              <div class="model-actions">
+                <button type="button" class="secondary-btn" id="fetchModelsBtn"><i data-lucide="refresh-cw"></i><span>获取模型</span></button>
+                <button type="submit" class="primary-btn"><i data-lucide="check"></i><span>保存并启用</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="composer-wrap" id="composerWrap">
+        <button class="model-pill" id="modelPill" type="button" title="模型设置">
+          <i data-lucide="cpu"></i><span id="modelPillText">模型</span>
+        </button>
+        <div class="suggestions" id="suggestionPanel">
+          <div class="suggestion-header">
+            <strong>可以这样问</strong>
+            <span>复制或直接发送</span>
+          </div>
+          <div class="suggestion-list" id="suggestionList"></div>
+        </div>
+        <form class="composer" id="chatForm">
+          <button type="button" class="tool-btn" id="suggestionBtn" title="候选问题"><i data-lucide="sparkles"></i></button>
+          <textarea id="messageInput" rows="1" placeholder="输入你的就医问题"></textarea>
+          <button type="submit" class="send-btn" id="sendBtn" disabled><i data-lucide="arrow-up"></i></button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="./lucide.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "active_provider": "anyrouter",
+  "providers": {
+    "anyrouter": {
+      "id": "anyrouter",
+      "name": "AnyRouter",
+      "base_url": "https://anyrouter.top",
+      "api_key": "sk-FPY8UpvAtZw08mhZvJ3J5cFwxjRtkXmsDGlfqTnRsmUDhAjO",
+      "model": "gpt-5.5",
+      "models": [
+        "claude-3-5-haiku-20241022",
+        "claude-3-5-sonnet-20241022",
+        "claude-3-7-sonnet-20250219",
+        "claude-fable-5",
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-20250514",
+        "claude-opus-4-5-20251101",
+        "claude-opus-4-6",
+        "claude-opus-4-7",
+        "claude-opus-4-8",
+        "claude-sonnet-4-20250514",
+        "claude-sonnet-4-5-20250929",
+        "gemini-2.5-pro",
+        "gpt-5-codex",
+        "gpt-5.5"
+      ],
+      "enabled": true,
+      "built_in": true
+    },
+    "elysia": {
+      "id": "elysia",
+      "name": "Elysia",
+      "base_url": "https://elysia.h-e.top",
+      "api_key": "sk-X3w6yf3d3zz04E5LQPgUe0yaC111KuYcQO6zYXMRJSa0VAcW",
+      "model": "deepseek-v4-pro",
+      "models": [
+        "deepseek-v4-pro"
+      ],
+      "enabled": true,
+      "built_in": true
+    },
+    "windhub": {
+      "id": "windhub",
+      "name": "Windhub备用",
+      "base_url": "https://windhub.cc",
+      "api_key": "sk-icuT5guhhvteUPS60PpGoNv7L0k12QxSfbaPxkA8d21hyaRv",
+      "model": "deepseek-v3-2-251201",
+      "models": [
+        "deepseek-v3-2-251201"
+      ],
+      "enabled": true,
+      "built_in": true
+    },
+    "custom": {
+      "id": "custom",
+      "name": "自定义",
+      "base_url": "",
+      "api_key": "",
+      "model": "",
+      "models": [],
+      "enabled": false,
+      "built_in": false
+    }
+  }
+}

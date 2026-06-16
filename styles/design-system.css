@@ -1,0 +1,333 @@
+/* ========== 医陪帮智能应用系统 - 专业设计系统 ========== */
+
+/* 基于医疗行业最佳实践的配色方案 */
+:root {
+  /* === 主色调（医疗专业+温暖） === */
+  --color-primary: #3B82F6;           /* 医疗蓝 */
+  --color-primary-light: #60A5FA;
+  --color-primary-dark: #2563EB;
+
+  --color-secondary: #14B8A6;          /* 治愈绿 */
+  --color-secondary-light: #5EEAD4;
+  --color-secondary-dark: #0D9488;
+
+  --color-accent: #8B5CF6;             /* 强调紫 */
+  --color-accent-light: #A78BFA;
+
+  /* === 渐变色 === */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #3B82F6 0%, #14B8A6 100%);
+  --gradient-warm: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+  --gradient-card: linear-gradient(145deg, #FFFFFF 0%, #F9FAFB 100%);
+
+  /* === 背景色（浅色主题） === */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-tertiary: #F3F4F6;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F3F4F6;
+
+  /* === 文字色 === */
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --text-disabled: #D1D5DB;
+  --text-inverse: #FFFFFF;
+
+  /* === 边框色 === */
+  --border-light: #E5E7EB;
+  --border-medium: #D1D5DB;
+  --border-dark: #9CA3AF;
+
+  /* === 功能色 === */
+  --color-success: #10B981;
+  --color-success-light: #D1FAE5;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FEF3C7;
+  --color-danger: #EF4444;
+  --color-danger-light: #FEE2E2;
+  --color-info: #3B82F6;
+  --color-info-light: #DBEAFE;
+
+  /* === 阴影系统 === */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* 彩色阴影 */
+  --shadow-primary: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+  --shadow-secondary: 0 10px 25px -5px rgba(20, 184, 166, 0.3);
+  --shadow-accent: 0 10px 25px -5px rgba(139, 92, 246, 0.3);
+
+  /* === 圆角系统 === */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* === 间距系统 === */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* === 字体系统 === */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+               "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue",
+               Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Monaco, "Cascadia Code",
+               "Roboto Mono", Consolas, monospace;
+
+  /* === 字号系统 === */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+  --text-5xl: 48px;
+
+  /* === 字重系统 === */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* === 行高系统 === */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* === 过渡动画 === */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slowest: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === Z-index层级 === */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* === 全局重置 === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* === 基础样式 === */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === 排版系统 === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-4);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+}
+
+h6 {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+}
+
+p {
+  margin-bottom: var(--spacing-4);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* === 滚动条样式 === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-dark);
+}
+
+/* === 选中文本样式 === */
+::selection {
+  background: var(--color-primary-light);
+  color: var(--text-inverse);
+}
+
+::-moz-selection {
+  background: var(--color-primary-light);
+  color: var(--text-inverse);
+}
+
+/* === 焦点样式 === */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* === 禁用状态 === */
+:disabled,
+[disabled] {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+/* === 占位符样式 === */
+::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
+}
+
+/* === 图片优化 === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === 列表样式重置 === */
+ul, ol {
+  list-style: none;
+}
+
+/* === 按钮重置 === */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* === 输入框重置 === */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* === 实用类 === */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* === 响应式断点 === */
+/*
+Mobile: < 640px
+Tablet: 640px - 1024px
+Desktop: > 1024px
+*/

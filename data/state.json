@@ -1,0 +1,129 @@
+{
+  "patient": {
+    "name": "陈阿姨",
+    "age": 68,
+    "case": "糖尿病复诊",
+    "hospital": "南方医院",
+    "department": "内分泌科",
+    "visitTime": "明天 09:30",
+    "arriveAdvice": "建议 08:50 到院"
+  },
+  "memory": [
+    {
+      "id": "mem001",
+      "category": "个人信息",
+      "key": "常去医院",
+      "value": "南方医院",
+      "source": "系统推断",
+      "updatedAt": "2024-06-15 10:00"
+    },
+    {
+      "id": "mem002",
+      "category": "个人信息",
+      "key": "常用科室",
+      "value": "内分泌科",
+      "source": "系统推断",
+      "updatedAt": "2024-06-15 10:00"
+    },
+    {
+      "id": "mem003",
+      "category": "个人信息",
+      "key": "家属联系人",
+      "value": "陈先生",
+      "source": "用户输入",
+      "updatedAt": "2024-06-15 10:00"
+    },
+    {
+      "id": "mem004",
+      "category": "就医偏好",
+      "key": "提醒偏好",
+      "value": "提前一天晚 8 点",
+      "source": "用户输入",
+      "updatedAt": "2024-06-15 10:00"
+    },
+    {
+      "id": "mem005",
+      "category": "注意事项",
+      "key": "空腹要求",
+      "value": "抽血前确认空腹要求",
+      "source": "系统推断",
+      "updatedAt": "2024-06-15 10:00"
+    },
+    {
+      "id": "mem006",
+      "category": "注意事项",
+      "key": "低血糖风险",
+      "value": "需要记录当时血糖",
+      "source": "系统推断",
+      "updatedAt": "2024-06-15 10:00"
+    }
+  ],
+  "checklist": [
+    {
+      "id": "idcard",
+      "title": "身份证、医保卡、就诊卡",
+      "detail": "挂号、缴费、取药都要用",
+      "done": true,
+      "tag": "必带"
+    },
+    {
+      "id": "record",
+      "title": "近 7 天血糖记录",
+      "detail": "空腹、餐后和夜间异常值单独标记",
+      "done": true,
+      "tag": "已准备"
+    },
+    {
+      "id": "report",
+      "title": "上次检查报告",
+      "detail": "血糖、糖化血红蛋白、尿酸报告",
+      "done": true,
+      "tag": "已准备"
+    },
+    {
+      "id": "medicine",
+      "title": "当前用药清单",
+      "detail": "药名、剂量、服药时间，最好带药盒",
+      "done": false,
+      "tag": "缺少"
+    },
+    {
+      "id": "question",
+      "title": "问诊问题提纲",
+      "detail": "夜间出汗、低血糖处理、复查周期",
+      "done": false,
+      "tag": "待生成"
+    },
+    {
+      "id": "fasting",
+      "title": "空腹提醒",
+      "detail": "抽血前按医嘱保持空腹，低血糖风险需留意",
+      "done": false,
+      "tag": "需确认"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "明天 08:50",
+      "title": "到达医院",
+      "text": "先取号，再去检验科抽血；陪诊人检查材料清单。"
+    },
+    {
+      "date": "明天 09:30",
+      "title": "内分泌科复诊",
+      "text": "带上血糖记录和用药清单，按问诊提纲向医生确认。"
+    },
+    {
+      "date": "3 天后",
+      "title": "整理医嘱",
+      "text": "把医生调整的用药、饮食和复查时间写入家属共享记录。"
+    },
+    {
+      "date": "30 天后",
+      "title": "复查提醒",
+      "text": "提前一天提醒空腹要求、报告单和挂号信息。"
+    }
+  ],
+  "familyNote": "明天带上血糖记录本，早餐先不要吃，抽血后再按医生建议用餐。",
+  "lastSync": "今天 20:10"
+}

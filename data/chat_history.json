@@ -1,0 +1,282 @@
+{
+  "conversations": [
+    {
+      "id": "msg001",
+      "role": "user",
+      "content": "帮我解读一下血糖报告",
+      "timestamp": "2026-06-16 19:39:59"
+    },
+    {
+      "id": "msg002",
+      "role": "assistant",
+      "content": "报告术语解释：我可以帮您整理检查报告中的专业术语。请告诉我具体的指标名称和数值，我会为您解释其含义，并提供问医生的问题建议。",
+      "intent": {
+        "route": "RAG",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "report"
+        ],
+        "actions": [
+          "检索报告术语库，把指标整理成问医生的问题。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "报告",
+          "血糖"
+        ],
+        "scores": {
+          "prepare": 0,
+          "report": 2,
+          "followup": 0,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： report（得分2）。纯知识检索任务，使用RAG模式。"
+      },
+      "timestamp": "2026-06-16 19:39:59"
+    },
+    {
+      "id": "msg003",
+      "role": "user",
+      "content": "有什么新的提醒吗？",
+      "timestamp": "2026-06-16 19:40:14"
+    },
+    {
+      "id": "msg004",
+      "role": "assistant",
+      "content": "复诊提醒已记录。我会在复诊前一天晚上8点提醒您，并列出需要准备的材料清单。",
+      "intent": {
+        "route": "ACTION",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "followup"
+        ],
+        "actions": [
+          "写入复诊时间线，并按提醒偏好推送。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "提醒"
+        ],
+        "scores": {
+          "prepare": 0,
+          "report": 0,
+          "followup": 1,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： followup（得分1）。单一操作任务，使用ACTION模式。"
+      },
+      "timestamp": "2026-06-16 19:40:14"
+    },
+    {
+      "id": "msg005",
+      "role": "user",
+      "content": "明天复诊要带什么材料？",
+      "timestamp": "2026-06-16 19:40:19"
+    },
+    {
+      "id": "msg006",
+      "role": "assistant",
+      "content": "根据您的内分泌科复诊，需要准备以下材料：\n1. 身份证、医保卡、就诊卡\n2. 近期检查报告和病历\n3. 当前用药清单\n4. 近期症状记录\n\n建议在明天 09:30前40分钟到院。",
+      "intent": {
+        "route": "ACTION",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "prepare"
+        ],
+        "actions": [
+          "生成就医材料清单、到院时间和问诊提纲。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "带什么",
+          "复诊",
+          "材料"
+        ],
+        "scores": {
+          "prepare": 3,
+          "report": 0,
+          "followup": 0,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： prepare（得分3）。单一操作任务，使用ACTION模式。"
+      },
+      "timestamp": "2026-06-16 19:40:19"
+    },
+    {
+      "id": "msg007",
+      "role": "user",
+      "content": "明天内分泌科复诊要带什么材料？",
+      "timestamp": "2026-06-16 20:01:42"
+    },
+    {
+      "id": "msg008",
+      "role": "assistant",
+      "content": "根据您的内分泌科复诊，需要准备以下材料：\n1. 身份证、医保卡、就诊卡\n2. 近期检查报告和病历\n3. 当前用药清单\n4. 近期症状记录\n\n建议在明天 09:30前40分钟到院。",
+      "intent": {
+        "route": "ACTION",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "prepare"
+        ],
+        "actions": [
+          "生成就医材料清单、到院时间和问诊提纲。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "带什么",
+          "复诊",
+          "材料"
+        ],
+        "scores": {
+          "prepare": 3,
+          "report": 0,
+          "followup": 0,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： prepare（得分3）。单一操作任务，使用ACTION模式。"
+      },
+      "timestamp": "2026-06-16 20:01:42"
+    },
+    {
+      "id": "msg009",
+      "role": "user",
+      "content": "糖尿病患者怎么办",
+      "timestamp": "2026-06-16 20:01:57"
+    },
+    {
+      "id": "msg010",
+      "role": "assistant",
+      "content": "根据您的内分泌科复诊，需要准备以下材料：\n1. 身份证、医保卡、就诊卡\n2. 近期检查报告和病历\n3. 当前用药清单\n4. 近期症状记录\n\n建议在明天 09:30前40分钟到院。",
+      "intent": {
+        "route": "HYBRID",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "prepare"
+        ],
+        "actions": [
+          "生成就医材料清单、到院时间和问诊提纲。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "复诊"
+        ],
+        "scores": {
+          "prepare": 0,
+          "report": 0,
+          "followup": 0,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： prepare（得分0）。多个意图并存，使用HYBRID混合模式。"
+      },
+      "timestamp": "2026-06-16 20:01:57"
+    },
+    {
+      "id": "msg011",
+      "role": "user",
+      "content": "糖尿病患者怎么办",
+      "timestamp": "2026-06-16 20:02:08"
+    },
+    {
+      "id": "msg012",
+      "role": "assistant",
+      "content": "根据您的内分泌科复诊，需要准备以下材料：\n1. 身份证、医保卡、就诊卡\n2. 近期检查报告和病历\n3. 当前用药清单\n4. 近期症状记录\n\n建议在明天 09:30前40分钟到院。",
+      "intent": {
+        "route": "HYBRID",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "prepare"
+        ],
+        "actions": [
+          "生成就医材料清单、到院时间和问诊提纲。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "复诊"
+        ],
+        "scores": {
+          "prepare": 0,
+          "report": 0,
+          "followup": 0,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： prepare（得分0）。多个意图并存，使用HYBRID混合模式。"
+      },
+      "timestamp": "2026-06-16 20:02:08"
+    },
+    {
+      "id": "msg013",
+      "role": "user",
+      "content": "糖尿病患者怎么办",
+      "timestamp": "2026-06-16 20:02:13"
+    },
+    {
+      "id": "msg014",
+      "role": "assistant",
+      "content": "根据您的内分泌科复诊，需要准备以下材料：\n1. 身份证、医保卡、就诊卡\n2. 近期检查报告和病历\n3. 当前用药清单\n4. 近期症状记录\n\n建议在明天 09:30前40分钟到院。",
+      "intent": {
+        "route": "HYBRID",
+        "title": "意图识别结果",
+        "summary": "根据自然语言输入，系统把请求拆成可执行动作。",
+        "intents": [
+          "prepare"
+        ],
+        "actions": [
+          "生成就医材料清单、到院时间和问诊提纲。"
+        ],
+        "layers": [
+          "规则层",
+          "知识库/RAG",
+          "长期记忆",
+          "安全层"
+        ],
+        "keywords": [
+          "复诊"
+        ],
+        "scores": {
+          "prepare": 0,
+          "report": 0,
+          "followup": 0,
+          "family": 0
+        },
+        "reason": "检测到 1 个意图： prepare（得分0）。多个意图并存，使用HYBRID混合模式。"
+      },
+      "timestamp": "2026-06-16 20:02:13"
+    }
+  ]
+}
