@@ -2,9 +2,14 @@ __pycache__/
 *.pyc
 .playwright-cli/
 output/
+!output/
+output/*
+!output/screenshots/
+!output/screenshots/*.png
 server.log
 server.err.log
 server.pid
+data/api_config.local.json
 *.backup
 tmp_*.py
 tmp_*.js

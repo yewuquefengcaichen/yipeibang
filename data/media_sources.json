@@ -1,0 +1,132 @@
+[
+  {
+    "id": "img-clinic-consult",
+    "file": "assets/medical/clinic-consult.jpg",
+    "title": "医生使用移动设备进行健康咨询",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "病例库与症状知识卡片配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-doctor-tablet",
+    "file": "assets/medical/doctor-tablet.jpg",
+    "title": "医生查阅健康信息",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "恶心症状、档案和健康记录配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-blood-pressure",
+    "file": "assets/medical/blood-pressure.jpg",
+    "title": "血压测量场景",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "高血压随访和血压记录配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-diabetes-care",
+    "file": "assets/medical/diabetes-care.jpg",
+    "title": "糖尿病与慢病管理场景",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "糖尿病复诊、血糖记录配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-medicine-bottle",
+    "file": "assets/medical/medicine-bottle.jpg",
+    "title": "药瓶和用药管理",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "用药提醒和漏服药病例配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-hospital-corridor",
+    "file": "assets/medical/hospital-corridor.jpg",
+    "title": "医院走廊",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "急症安全和复诊任务配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-healthy-life",
+    "file": "assets/medical/healthy-life.jpg",
+    "title": "健康饮食与生活方式",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "生活方式知识和睡眠管理配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-elder-care",
+    "file": "assets/medical/elder-care.jpg",
+    "title": "老年照护和陪诊协同",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "家属同步、老年头晕跌倒病例配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-medical-team",
+    "file": "assets/medical/medical-team.jpg",
+    "title": "医疗团队场景",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "体检复查和多学科建议配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-xray-check",
+    "file": "assets/medical/xray-check.jpg",
+    "title": "影像检查场景",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "术后复查和检查资料配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "img-family-care",
+    "file": "assets/medical/family-care.jpg",
+    "title": "家庭健康照护",
+    "source_name": "Unsplash",
+    "source_url": "https://unsplash.com/",
+    "license": "Unsplash License",
+    "usage": "儿童发热和家属协同病例配图",
+    "note": "公共授权图片，不包含本项目患者隐私"
+  },
+  {
+    "id": "ref-pmc-cases",
+    "file": "data/cases.json",
+    "title": "病例文本参考来源",
+    "source_name": "PubMed Central",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/",
+    "license": "公开医学文献库，具体文章需按原文许可引用",
+    "usage": "病例库结构设计、病史/检查/治疗/随访字段参考",
+    "note": "当前演示病例为合成脱敏病例，不包含真实患者身份信息"
+  },
+  {
+    "id": "ref-cdc-phil",
+    "file": "assets/medical/",
+    "title": "公共卫生图片参考来源",
+    "source_name": "CDC Public Health Image Library",
+    "source_url": "https://wwwn.cdc.gov/phil/",
+    "license": "CDC PHIL 公共卫生素材库，实际引用需按条目授权说明",
+    "usage": "血压测量、糖尿病管理、用药提醒、卫生行为等场景图片选题参考",
+    "note": "本项目保留本地图片，便于离线演示稳定显示"
+  }
+]

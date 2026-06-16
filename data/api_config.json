@@ -5,7 +5,7 @@
       "id": "anyrouter",
       "name": "AnyRouter",
       "base_url": "https://anyrouter.top",
-      "api_key": "sk-FPY8UpvAtZw08mhZvJ3J5cFwxjRtkXmsDGlfqTnRsmUDhAjO",
+      "api_key": "",
       "model": "gpt-5.5",
       "models": [
         "claude-3-5-haiku-20241022",
@@ -32,7 +32,7 @@
       "id": "elysia",
       "name": "Elysia",
       "base_url": "https://elysia.h-e.top",
-      "api_key": "sk-X3w6yf3d3zz04E5LQPgUe0yaC111KuYcQO6zYXMRJSa0VAcW",
+      "api_key": "",
       "model": "deepseek-v4-pro",
       "models": [
         "deepseek-v4-pro"
@@ -44,7 +44,7 @@
       "id": "windhub",
       "name": "Windhub备用",
       "base_url": "https://windhub.cc",
-      "api_key": "sk-icuT5guhhvteUPS60PpGoNv7L0k12QxSfbaPxkA8d21hyaRv",
+      "api_key": "",
       "model": "deepseek-v3-2-251201",
       "models": [
         "deepseek-v3-2-251201"

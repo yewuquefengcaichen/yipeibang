@@ -13,13 +13,13 @@
       <div class="side-brand">
         <div>
           <strong>医陪帮</strong>
-          <span>你的智能健康助手</span>
+          <span>智能陪诊</span>
         </div>
         <button class="icon-plain brand-compose" id="brandNewChatBtn" title="新建对话"><i data-lucide="square-pen"></i></button>
       </div>
       <div class="side-top">
         <button class="icon-plain" id="collapseBtn" title="收起侧栏"><i data-lucide="chevrons-left"></i></button>
-        <button class="icon-plain" id="quickDemoBtn" title="核心演示"><i data-lucide="sparkles"></i></button>
+        <button class="icon-plain" id="quickDemoBtn" title="一键演示"><i data-lucide="sparkles"></i></button>
         <button class="icon-plain" id="newChatIconBtn" title="新建对话"><i data-lucide="plus"></i></button>
       </div>
 
@@ -31,6 +31,7 @@
         <button class="menu-item" data-view="records"><i data-lucide="activity"></i><span>健康记录</span></button>
         <button class="menu-item" data-view="reminders"><i data-lucide="bell"></i><span>提醒中心</span></button>
         <button class="menu-item" data-view="models"><i data-lucide="router"></i><span>模型设置</span></button>
+        <button class="menu-item" data-view="demo"><i data-lucide="route"></i><span>演示路线</span></button>
       </nav>
 
       <div class="history-block">
@@ -76,6 +77,20 @@
               <span class="feature-icon"><i data-lucide="siren"></i></span>
               <strong>风险处理</strong>
               <small>急症安全提醒</small>
+            </button>
+          </div>
+          <div class="loop-panel">
+            <button class="loop-step" data-prompt="平时我同学有夜间出汗，怎么办？帮我分析一下">
+              <i data-lucide="stethoscope"></i><strong>症状分层</strong><span>夜汗、恶心、胸痛等先判断风险</span>
+            </button>
+            <button class="loop-step" data-prompt="血压150/96，头有点胀，帮我记录并提醒复查">
+              <i data-lucide="activity"></i><strong>记录沉淀</strong><span>血压、血糖、体温自动写入</span>
+            </button>
+            <button class="loop-step" data-prompt="明天内分泌科复诊，空腹血糖8.2，最近夜里出汗，要带什么？">
+              <i data-lucide="clipboard-check"></i><strong>复诊清单</strong><span>材料、报告、问诊问题一次生成</span>
+            </button>
+            <button class="loop-step" data-prompt="下次复诊前一天晚上8点提醒我，并同步给家属">
+              <i data-lucide="bell-ring"></i><strong>主动提醒</strong><span>就诊前自动推送执行清单</span>
             </button>
           </div>
         </div>
@@ -174,6 +189,16 @@
         </div>
       </section>
 
+      <section class="view" id="view-demo">
+        <div class="page page-narrow">
+          <div class="page-head">
+            <h2>演示路线</h2>
+            <span>一键展示陪诊闭环</span>
+          </div>
+          <div class="demo-grid" id="demoGrid"></div>
+        </div>
+      </section>
+
       <div class="composer-wrap" id="composerWrap">
         <button class="model-pill" id="modelPill" type="button" title="模型设置">
           <i data-lucide="cpu"></i><span id="modelPillText">模型</span>
@@ -188,6 +213,7 @@
         <form class="composer" id="chatForm">
           <button type="button" class="tool-btn" id="suggestionBtn" title="候选问题"><i data-lucide="sparkles"></i></button>
           <textarea id="messageInput" rows="1" placeholder="输入你的就医问题"></textarea>
+          <button type="button" class="tool-btn stop-btn" id="stopBtn" title="停止生成"><i data-lucide="square"></i></button>
           <button type="submit" class="send-btn" id="sendBtn" disabled><i data-lucide="arrow-up"></i></button>
         </form>
       </div>
