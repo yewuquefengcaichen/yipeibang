@@ -351,8 +351,8 @@ async function loadProviders() {
     providerState = {
       active_provider: "anyrouter",
       providers: [
-        { id: "anyrouter", name: "AnyRouter", base_url: "https://anyrouter.top", model: "gpt-5.5", models: ["gpt-5.5"], enabled: true, api_key_set: true, api_key_preview: "已配置" },
-        { id: "elysia", name: "Elysia", base_url: "https://elysia.h-e.top", model: "deepseek-v4-pro", models: ["deepseek-v4-pro"], enabled: true, api_key_set: true, api_key_preview: "已配置" }
+        { id: "anyrouter", name: "AnyRouter", base_url: "https://anyrouter.top", model: "", models: [], enabled: true, api_key_set: false, api_key_preview: "" },
+        { id: "elysia", name: "Elysia", base_url: "https://elysia.h-e.top", model: "", models: [], enabled: true, api_key_set: false, api_key_preview: "" }
       ]
     };
     selectedProviderId = providerState.active_provider;
@@ -422,9 +422,10 @@ function renderProviderForm() {
   $("#providerApiKey").placeholder = provider.api_key_set ? `已保存 ${provider.api_key_preview}，留空沿用` : "请输入 API Key";
   const models = provider.models?.length ? provider.models : (provider.model ? [provider.model] : []);
   $("#providerModelSelect").innerHTML = models.length
-    ? models.map((model) => `<option value="${escapeAttr(model)}" ${model === provider.model ? "selected" : ""}>${escapeHtml(model)}</option>`).join("")
+    ? models.map((model, index) => `<option value="${escapeAttr(model)}" ${model === provider.model ? "selected" : ""}>模型通道 ${index + 1}</option>`).join("")
     : `<option value="">暂无模型列表</option>`;
-  $("#providerModelInput").value = provider.model || "";
+  $("#providerModelInput").value = "";
+  $("#providerModelInput").placeholder = provider.model ? "已选择模型，留空沿用" : "可手动输入模型名";
   $("#modelStatus").textContent = `${provider.name || provider.id} · ${provider.api_key_set ? "Key 已配置" : "待配置"}`;
 }
 
