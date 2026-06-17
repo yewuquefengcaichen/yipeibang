@@ -6,6 +6,8 @@ output/
 output/*
 !output/screenshots/
 !output/screenshots/*.png
+!output/theme-screens/
+!output/theme-screens/*.png
 server.log
 server.err.log
 server.pid

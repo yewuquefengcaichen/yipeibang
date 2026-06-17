@@ -40,7 +40,14 @@
       </div>
 
       <div class="side-footer">
-        <button class="footer-button" id="themeToggle"><i data-lucide="sun-moon"></i><span>明暗模式</span></button>
+        <button class="footer-button" id="themeToggle"><i data-lucide="palette"></i><span>主题风格</span></button>
+        <div class="theme-panel" id="themePanel">
+          <div class="theme-panel-head">
+            <strong>界面主题</strong>
+            <span>选择一种演示风格</span>
+          </div>
+          <div class="theme-options" id="themeOptions"></div>
+        </div>
       </div>
     </aside>
 
@@ -56,6 +63,24 @@
           <div class="home-brand">
             <div class="home-logo"><i data-lucide="cross"></i></div>
             <h1>医陪帮</h1>
+          </div>
+          <div class="home-status">
+            <div>
+              <strong id="homeCaseCount">12</strong>
+              <span>病例库</span>
+            </div>
+            <div>
+              <strong id="homeKnowledgeCount">46</strong>
+              <span>知识条目</span>
+            </div>
+            <div>
+              <strong id="homeRecordCount">0</strong>
+              <span>健康记录</span>
+            </div>
+            <div>
+              <strong id="homeReminderCount">0</strong>
+              <span>提醒待办</span>
+            </div>
           </div>
           <div class="feature-grid">
             <button class="feature-card" data-prompt="明天内分泌科复诊，空腹血糖8.2，最近夜里出汗，要带什么？">

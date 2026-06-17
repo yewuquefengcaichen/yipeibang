@@ -10,6 +10,45 @@ const quickQuestions = [
   "我胸痛、呼吸困难、脸色发白，现在怎么办？"
 ];
 
+const themes = [
+  {
+    id: "clinical",
+    name: "奶白医疗",
+    desc: "清爽、可信、适合默认演示",
+    swatches: ["#f7f9fc", "#0f9f9a", "#b8793a"]
+  },
+  {
+    id: "jade",
+    name: "青瓷陪诊",
+    desc: "浅青和玉色，柔和亲近",
+    swatches: ["#f3fbf8", "#14b8a6", "#2f7d64"]
+  },
+  {
+    id: "sunrise",
+    name: "暖金晨光",
+    desc: "更温暖，适合复诊清单",
+    swatches: ["#fff8f0", "#d28a3c", "#2563eb"]
+  },
+  {
+    id: "ocean",
+    name: "海盐蓝",
+    desc: "医疗蓝和浅雾背景",
+    swatches: ["#f2f8ff", "#2563eb", "#06b6d4"]
+  },
+  {
+    id: "graphite",
+    name: "石墨专业",
+    desc: "低调、克制、像工作台",
+    swatches: ["#f4f5f7", "#334155", "#0f766e"]
+  },
+  {
+    id: "midnight",
+    name: "夜间诊室",
+    desc: "深色模式，适合投影演示",
+    swatches: ["#111827", "#7aa2ff", "#2dd4bf"]
+  }
+];
+
 const demoRoutes = [
   {
     id: "demo-night-sweat",
@@ -217,6 +256,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   applyTheme();
   bindEvents();
   renderSuggestions();
+  renderThemeOptions();
   await loadAppData();
   await loadProviders();
   renderAll();
@@ -246,6 +286,10 @@ function bindEvents() {
       event.preventDefault();
       $("#chatForm").requestSubmit();
     }
+    if (event.key === "Escape") {
+      closeSuggestions();
+      $("#themePanel")?.classList.remove("open");
+    }
   });
 
   $("#suggestionBtn").addEventListener("click", () => {
@@ -254,8 +298,7 @@ function bindEvents() {
   });
   $("#stopBtn").addEventListener("click", stopStreaming);
   $("#themeToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    localStorage.setItem("yipeibang-theme", document.body.classList.contains("dark") ? "dark" : "light");
+    $("#themePanel").classList.toggle("open");
   });
   $("#modelPill").addEventListener("click", () => switchView("models"));
   $("#collapseBtn").addEventListener("click", () => document.body.classList.toggle("collapsed"));
@@ -281,13 +324,61 @@ function bindEvents() {
 
   document.addEventListener("click", (event) => {
     if (!$("#composerWrap").contains(event.target)) closeSuggestions();
+    if (!$(".side-footer")?.contains(event.target)) $("#themePanel")?.classList.remove("open");
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeSuggestions();
+      $("#themePanel")?.classList.remove("open");
+      closeDialog();
+    }
   });
 }
 
 function applyTheme() {
-  if (localStorage.getItem("yipeibang-theme") === "dark") {
-    document.body.classList.add("dark");
+  const requested = new URLSearchParams(window.location.search).get("theme");
+  if (requested && themes.some((item) => item.id === requested)) {
+    localStorage.setItem("yipeibang-theme", requested);
   }
+  const saved = localStorage.getItem("yipeibang-theme");
+  const theme = saved === "dark" ? "midnight" : saved || "clinical";
+  document.body.dataset.theme = themes.some((item) => item.id === theme) ? theme : "clinical";
+  document.body.classList.toggle("dark", document.body.dataset.theme === "midnight");
+}
+
+function setTheme(themeId) {
+  const theme = themes.some((item) => item.id === themeId) ? themeId : "clinical";
+  document.body.dataset.theme = theme;
+  document.body.classList.toggle("dark", theme === "midnight");
+  localStorage.setItem("yipeibang-theme", theme);
+  renderThemeOptions();
+  updateThemeLabel();
+  showToast(`已切换到${themes.find((item) => item.id === theme)?.name || "新主题"}`);
+}
+
+function renderThemeOptions() {
+  const box = $("#themeOptions");
+  if (!box) return;
+  const current = document.body.dataset.theme || "clinical";
+  box.innerHTML = themes.map((theme) => `
+    <button type="button" class="theme-option ${theme.id === current ? "active" : ""}" data-theme="${escapeAttr(theme.id)}">
+      <span class="theme-swatches">${theme.swatches.map((color) => `<i style="background:${escapeAttr(color)}"></i>`).join("")}</span>
+      <span>
+        <strong>${escapeHtml(theme.name)}</strong>
+        <small>${escapeHtml(theme.desc)}</small>
+      </span>
+    </button>
+  `).join("");
+  $$(".theme-option").forEach((button) => {
+    button.addEventListener("click", () => setTheme(button.dataset.theme));
+  });
+  updateThemeLabel();
+}
+
+function updateThemeLabel() {
+  const current = themes.find((item) => item.id === (document.body.dataset.theme || "clinical")) || themes[0];
+  const label = $("#themeToggle span");
+  if (label) label.textContent = current.name;
 }
 
 async function loadAppData() {
@@ -361,6 +452,7 @@ async function loadProviders() {
 }
 
 function renderAll() {
+  renderHomeStatus();
   renderConversations();
   renderProfile();
   renderCases();
@@ -369,6 +461,14 @@ function renderAll() {
   renderReminders();
   renderProviders();
   renderDemoRoutes();
+}
+
+function renderHomeStatus() {
+  if (!$("#homeCaseCount")) return;
+  $("#homeCaseCount").textContent = appData.cases?.length || 0;
+  $("#homeKnowledgeCount").textContent = appData.knowledge?.length || 0;
+  $("#homeRecordCount").textContent = appData.records?.length || 0;
+  $("#homeReminderCount").textContent = (appData.reminders || []).filter((item) => item.status !== "done" && !item.done).length;
 }
 
 function openInitialView() {
@@ -1288,6 +1388,7 @@ async function refreshRuntimeData() {
       appData.reminders = normalizeReminders(data.reminders || []);
       renderReminders(lastTrace.actions);
     }
+    renderHomeStatus();
   } catch (error) {
     console.warn("运行时数据刷新失败", error);
   }
